@@ -1,19 +1,29 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using Unidux.SceneTransition;
 using UniRx;
-using UnityEngine;
 
 namespace Denity.UniduxSceneTransitionSample.SceneTransition
 {
-    public class SceneWatcher : MonoBehaviour
+    /// <summary>
+    /// シーンの状態に変更が発生した際に監視するクラス
+    /// </summary>
+    public class SceneWatcher : IDisposable
     {
-        void Start()
+        CompositeDisposable _disposable = new CompositeDisposable();
+
+        public void Initialize()
         {
             Unidux.Subject
                 .Where(state => state.Scene.IsStateChanged)
                 .StartWith(Unidux.State)
                 .Subscribe(state => _ = ChangeScenes(state.Scene))
-                .AddTo(this);
+                .AddTo(_disposable);
+        }
+
+        public void Dispose()
+        {
+            _disposable?.Dispose();
         }
 
         async UniTaskVoid ChangeScenes(SceneState<SceneName> state)
