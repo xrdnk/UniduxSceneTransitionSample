@@ -16,6 +16,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.LifeCycle
             Container.BindInterfacesAndSelfTo<MainPageDispatcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<MainPageService>().AsSingle();
             Container.BindInstance(_view);
+            Container.Bind<UIViewBase>().FromInstance(_view);
             Container.BindInterfacesAndSelfTo<MainPagePresenter>().AsSingle();
         }
 

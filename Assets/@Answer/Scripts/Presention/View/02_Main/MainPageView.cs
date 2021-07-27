@@ -10,7 +10,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.View
     /// ゲーム画面のView
     /// ViewはMonoBehaviourを持つ
     /// </summary>
-    public class MainPageView : MonoBehaviour
+    public class MainPageView : UIViewBase
     {
         [SerializeField] Button _buttonAttackGod;
         [SerializeField] Button _buttonLoadResultPage;
@@ -26,7 +26,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.View
         readonly Subject<Unit> _returnTitleSubject = new Subject<Unit>();
         public IObservable<Unit> OnReturnTitleAsObservable() => _returnTitleSubject;
 
-        void Awake()
+        protected override void Awake()
         {
             _buttonAttackGod
                 .OnClickAsObservable()

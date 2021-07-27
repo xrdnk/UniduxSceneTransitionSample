@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/@UniduxSceneTransitionSample/Scenes/Permanent/0Z_UniduxBase/UniduxBaseScene.unity
+    path: Assets/@Answer/Scenes/Permanent/0Z_UniduxBase/UniduxBaseScene.unity
     guid: c28212b5cfc218a4c9412c9c73e787d6
   - enabled: 1
-    path: Assets/@UniduxSceneTransitionSample/Scenes/Page/01_Title/Title.unity
+    path: Assets/@Answer/Scenes/Page/01_Title/Title.unity
     guid: 6776b90ecc8b4e0489e0d34dd3e0cd97
   - enabled: 1
-    path: Assets/@UniduxSceneTransitionSample/Scenes/Page/02_Main/Main.unity
+    path: Assets/@Answer/Scenes/Page/02_Main/Main.unity
     guid: 05a93d453a45c904ebfd3abc4b78c975
   - enabled: 1
-    path: Assets/@UniduxSceneTransitionSample/Scenes/Page/03_Result/Result.unity
+    path: Assets/@Answer/Scenes/Page/03_Result/Result.unity
     guid: 54d568e2236108d42b919c24776ed973
   m_configObjects: {}

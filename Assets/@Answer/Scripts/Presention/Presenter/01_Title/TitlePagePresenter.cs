@@ -13,11 +13,11 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
     public class TitlePagePresenter : IPresenter
     {
         readonly TitlePageDispatcher _dispatcher;
-        readonly TitlePageView _view;
+        readonly TitleView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public TitlePagePresenter(TitlePageDispatcher dispatcher, TitlePageView view)
+        public TitlePagePresenter(TitlePageDispatcher dispatcher, TitleView view)
         {
             _dispatcher = dispatcher;
             _view = view;

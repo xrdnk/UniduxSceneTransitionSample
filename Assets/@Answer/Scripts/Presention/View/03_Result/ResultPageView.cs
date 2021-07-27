@@ -10,7 +10,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.View
     /// リザルト画面のView
     /// ViewはMonoBehaviourを持つ
     /// </summary>
-    public class ResultPageView : MonoBehaviour
+    public class ResultPageView : UIViewBase
     {
         [SerializeField] Button _buttonReturnTitle;
         [SerializeField] TMP_Text _textResult;
@@ -18,7 +18,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.View
         readonly Subject<Unit> _returnTitleSubject = new Subject<Unit>();
         public IObservable<Unit> OnReturnTitleTriggerAsObservable() => _returnTitleSubject;
 
-        void Awake()
+        protected override void Awake()
         {
             _buttonReturnTitle
                 .OnClickAsObservable()
