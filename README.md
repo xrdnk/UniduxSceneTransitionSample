@@ -18,9 +18,9 @@ Assets
 │  │  └─... (Prefabs, Audios, Materials, Animations etc...)
 │  ├─Scenes # Unity Scene を格納するフォルダです
 │  │  ├─Page # ページとして利用する Unity Scene を格納するフォルダです
-│  │  │  ├─01_Title # タイトル画面に用いる Unity Scene 群
-│  │  │  ├─02_Main # ゲーム画面に用いる Unity Scene 群
-│  │  │  └─03_Result # リザルト画面に用いる Unity Scene 群
+│  │  │  ├─01_Title
+│  │  │  ├─02_Main
+│  │  │  └─03_Result
 │  │  └─Permanent # 永続的に利用する Unity Scene を格納するフォルダです (Service, Repository, Infrastructure Layers...)
 │  │      ├─0A_AAAA 
 │  │      ├─0B_BBBB
@@ -28,39 +28,39 @@ Assets
 │  └─Scripts # スクリプトを格納するフォルダです
 │      ├─Application # アプリケーションレイヤー 
 │      │  └─Context # コンテキストレイヤー (初期化・終端処理以外のDomain間の実行処理順番を定めたり，フローの調整を司ります) <<基本MonoBehaviourを継承しない>>
-│      │      ├─01_Title # タイトル画面用
-│      │      ├─02_Main # ゲーム画面用 
-│      │      ├─03_Result # リザルト画面用
+│      │      ├─01_Title 
+│      │      ├─02_Main 
+│      │      ├─03_Result
 │      │      ├─0A_AAAA 
 │      │      └─0B_BBBB
 │      ├─Domain # ドメインレイヤー (サービスやモデルデータを配置しています) 
 │      │  ├─PageData # ページデータを格納するフォルダです <<IPageDataを実装する>>
-│      │  │  ├─02_Main # ゲーム画面用 
-│      │  │  └─03_Result # リザルト画面用
+│      │  │  ├─02_Main 
+│      │  │  └─03_Result
 │      │  ├─Service # サンプル用の Service を格納するフォルダです <<必要に応じてMonoBehaviourを継承する>>
-│      │  │  ├─02_Main # ゲーム画面用
-│      │  │  └─03_Result # リザルト画面用
+│      │  │  ├─02_Main
+│      │  │  └─03_Result
 │      │  └─Unidux # Unidux Service を格納するフォルダです
 │      ├─LifeCycle # ライフサイクルレイヤー (ここでは MonoInstaller or LifetimeScope を配置し，初期化・終端処理の順番を定めます) <<MonoBehaviour継承>>
-│      │  ├─01_Title # タイトル画面用
-│      │  ├─02_Main # ゲーム画面用
-│      │  ├─03_Result # リザルト画面用
+│      │  ├─01_Title
+│      │  ├─02_Main
+│      │  ├─03_Result
 │      │  └─0Z_UniduxBase # Unidux Service Scene 
 │      └─Presention # プレゼンテーションレイヤー を格納するフォルダです 
 │          ├─Navigator # ナビゲータレイヤー (Scene 内に存在する View 群との間の行き来等の処理を司ります) <<基本MonoBehaviourを継承しない>>
 │          ├─Presenter # プレゼンタレイヤー (View と Domain との橋渡し処理を司ります) <<基本MonoBehaviourを継承しない>>
-│          │  ├─01_Title # タイトル画面用
-│          │  ├─02_Main # ゲーム画面用
-│          │  └─03_Result # リザルト画面用
+│          │  ├─01_Title
+│          │  ├─02_Main
+│          │  └─03_Result
 │          ├─Transitioner # トランジショナーレイヤー (Page と Page または同一 Page 下における Scene と Scene との間の行き来等の処理を司ります) <<基本MonoBehaviourを継承しない>>
-│          │  ├─01_Title # タイトル画面用
-│          │  ├─02_Main # ゲーム画面用
-│          │  ├─03_Result # リザルト画面用
+│          │  ├─01_Title
+│          │  ├─02_Main
+│          │  ├─03_Result
 │          │  └─0Z_UniduxBase # Unidux Service Scene 
 │          └─View # ビューレイヤー (入力イベント・出力表示用の処理を司ります) <<UIBehaviour継承>>
-│              ├─01_Title # タイトル画面用
-│              ├─02_Main # ゲーム画面用
-│              └─03_Result # リザルト画面用
+│              ├─01_Title
+│              ├─02_Main
+│              └─03_Result
 ├─ScriptTemplates # スクリプトテンプレート格納用フォルダ
 └─ThirdParty # サードパーティアセット格納用フォルダ
     ├─MiniJSON
