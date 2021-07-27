@@ -1,6 +1,6 @@
-﻿namespace Denity.UniduxSceneTransitionSample.Answer.Dispatcher
+﻿namespace Denity.UniduxSceneTransitionSample.Answer.Service
 {
-    public interface IDispatcher
+    public interface IService
     {
         /// <summary>
         /// Originate

@@ -1,19 +1,19 @@
-using System;
 using Denity.UniduxSceneTransitionSample.Answer.Unidux;
 using Unidux.SceneTransition;
 
 namespace Denity.UniduxSceneTransitionSample.Answer.Dispatcher
 {
-    public class BaseSceneDispatcher : IDispatcher
+    public class BaseSceneDispatcher
     {
-        public void Originate()
+        /// <summary>
+        /// タイトル画面に遷移する
+        /// </summary>
+        public void EnterTitlePage()
         {
+            // 一旦ステートのクリーンのためにResetでディスパッチ
             UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Reset());
+            // 最初のタイトル画面を起動 → Pushでディスパッチ
             UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Title));
-        }
-
-        public void Terminate()
-        {
         }
     }
 }

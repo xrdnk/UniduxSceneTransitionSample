@@ -1,4 +1,5 @@
 ﻿using System;
+using Denity.UniduxSceneTransitionSample.Answer.Service;
 using Unidux.SceneTransition;
 using UniRx;
 
@@ -7,7 +8,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Unidux
     /// <summary>
     /// ページの状態に変更が発生した際に監視するクラス
     /// </summary>
-    public class PageWatcher : IDisposable
+    public class PageWatcher : IService
     {
         ISceneConfig<SceneName, PageName> _config = new SceneConfig();
         string _currentPageName;
@@ -24,7 +25,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Unidux
                 .AddTo(_disposable);
         }
 
-        public void Dispose()
+        public void Terminate()
         {
             _disposable?.Dispose();
         }

@@ -1,5 +1,5 @@
-﻿using System;
-using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+using Denity.UniduxSceneTransitionSample.Answer.Service;
 using Denity.UniduxSceneTransitionSample.Answer.View;
 using UniRx;
 
@@ -12,12 +12,14 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
     /// </summary>
     public class ResultPagePresenter : IPresenter
     {
+        readonly ResultPageService _service;
         readonly ResultPageDispatcher _dispatcher;
         readonly ResultPageView _view;
         readonly CompositeDisposable _disposable;
 
-        public ResultPagePresenter(ResultPageDispatcher dispatcher, ResultPageView view)
+        public ResultPagePresenter(ResultPageService service, ResultPageDispatcher dispatcher, ResultPageView view)
         {
+            _service = service;
             _dispatcher = dispatcher;
             _view = view;
             _disposable = new CompositeDisposable();
@@ -25,18 +27,18 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
 
         public void Originate()
         {
-            _dispatcher.DamageDoneProperty
+            _service.DamageDoneProperty
                 .Subscribe(_view.DisplayResult)
                 .AddTo(_disposable);
 
             _view.OnReturnTitleTriggerAsObservable()
-                .Subscribe(_ => _dispatcher.ReturnTitle())
+                .Subscribe(_ => _dispatcher.ReturnTitlePage())
                 .AddTo(_disposable);
         }
 
         public void Terminate()
         {
-            _dispatcher?.Terminate();
+            _service?.Terminate();
             _disposable?.Dispose();
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
 using Denity.UniduxSceneTransitionSample.Answer.View;
 using UniRx;
 using Zenject;
@@ -28,13 +27,12 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
         public void Originate()
         {
             _view.OnGameStartAsObservable()
-                .Subscribe(_ => _dispatcher.EnterGame())
+                .Subscribe(_ => _dispatcher.EnterMainPage())
                 .AddTo(_disposable);
         }
 
         public void Terminate()
         {
-            _dispatcher?.Terminate();
             _disposable?.Dispose();
         }
     }

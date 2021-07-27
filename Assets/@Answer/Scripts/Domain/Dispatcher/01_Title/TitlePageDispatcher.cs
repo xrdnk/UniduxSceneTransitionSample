@@ -4,22 +4,15 @@ using Unidux.SceneTransition;
 
 namespace Denity.UniduxSceneTransitionSample.Answer.Dispatcher
 {
-    public class TitlePageDispatcher : IDispatcher
+    public class TitlePageDispatcher
     {
-        public void Originate()
+        /// <summary>
+        /// ゲーム画面に遷移する
+        /// </summary>
+        public void EnterMainPage()
         {
-        }
-
-        public void EnterGame()
-        {
-            // 次画面に移行．ここではMainPageDataの初期化も行いたいので，新たにMainPageDataのインスタンスを作成 → Push
-            var action = PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Main, new MainPageData());
-            UniduxCore.Dispatch(action);
-        }
-
-        public void Terminate()
-        {
-
+            // 次画面に移行．ここではMainPageDataの初期化も行いたいので，新たにMainPageDataのインスタンスを作成 → Pushでディスパッチ
+            UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Main, new MainPageData()));
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using System;
-using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+using Denity.UniduxSceneTransitionSample.Answer.Service;
 using Denity.UniduxSceneTransitionSample.Answer.View;
 using UniRx;
 using Zenject;
@@ -13,13 +13,15 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
     /// </summary>
     public class MainPagePresenter : IPresenter
     {
+        readonly MainPageService _service;
         readonly MainPageDispatcher _dispatcher;
         readonly MainPageView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public MainPagePresenter(MainPageDispatcher dispatcher, MainPageView view)
+        public MainPagePresenter(MainPageService service, MainPageDispatcher dispatcher, MainPageView view)
         {
+            _service = service;
             _dispatcher = dispatcher;
             _view = view;
             _disposable = new CompositeDisposable();
@@ -28,15 +30,15 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
         public void Originate()
         {
             _view.OnAttackedAsObservable()
-                .Subscribe(_ => _dispatcher.AttackGod())
+                .Subscribe(_ => _service.AttackGod())
                 .AddTo(_disposable);
 
-            _dispatcher.GodHpProperty
+            _service.GodHpProperty
                 .Subscribe(_view.DisplayGodHp)
                 .AddTo(_disposable);
 
             _view.OnLoadResultAsObservable()
-                .Subscribe(_ => _dispatcher.LoadResultPage())
+                .Subscribe(_ => _dispatcher.EnterResultPage())
                 .AddTo(_disposable);
 
             _view.OnReturnTitleAsObservable()
@@ -46,7 +48,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Presenter
 
         public void Terminate()
         {
-            _dispatcher?.Terminate();
+            _service?.Terminate();
             _disposable?.Dispose();
         }
     }

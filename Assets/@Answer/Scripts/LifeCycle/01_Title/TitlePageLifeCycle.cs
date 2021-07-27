@@ -18,6 +18,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.LifeCycle
             Container.BindInterfacesAndSelfTo<TitlePagePresenter>().AsSingle();
         }
 
+        TitlePageDispatcher _dispatcher;
         TitlePagePresenter _presenter;
 
         void Awake()

@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Denity.UniduxSceneTransitionSample.Answer.Service;
 using Unidux.SceneTransition;
 using UniRx;
 
@@ -8,7 +9,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Unidux
     /// <summary>
     /// シーンの状態に変更が発生した際に監視するクラス
     /// </summary>
-    public class SceneWatcher : IDisposable
+    public class SceneWatcher : IService
     {
         CompositeDisposable _disposable = new CompositeDisposable();
 
@@ -21,7 +22,7 @@ namespace Denity.UniduxSceneTransitionSample.Answer.Unidux
                 .AddTo(_disposable);
         }
 
-        public void Dispose()
+        public void Terminate()
         {
             _disposable?.Dispose();
         }

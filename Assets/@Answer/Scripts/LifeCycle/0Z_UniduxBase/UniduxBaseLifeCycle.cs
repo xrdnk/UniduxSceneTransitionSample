@@ -28,14 +28,14 @@ namespace Denity.UniduxSceneTransitionSample.Answer.LifeCycle
             // Originate
             _pageWatcher.Originate();
             _sceneWatcher.Originate();
-            _dispatcher.Originate();
+            _dispatcher.EnterTitlePage();
         }
 
         void OnDestroy()
         {
             // Terminate
-            _pageWatcher.Dispose();
-            _sceneWatcher.Dispose();
+            _pageWatcher.Terminate();
+            _sceneWatcher.Terminate();
         }
     }
 }
