@@ -1,5 +1,5 @@
 # UniduxSceneTransitionSample
-Unidux + MV(R)P + UniRx + UniTask + Zenject Example
+Unidux + UniRx + UniTask + Zenject Example
 
 ## Dependencies
 
