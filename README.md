@@ -73,7 +73,7 @@ Assets
 
 ## Dependencies
 
-* Unity 2020.3.14f1
+* Unity 2020.3.15f1
 
 ## Third Party Assets
 
