@@ -1,6 +1,11 @@
 # UniduxSceneTransitionSample
 Unidux + UniRx + UniTask + Zenject Example
 
+## Description
+
+Unidux を利用した状態制御・画面遷移機構のサンプルプロジェクトです．  
+hands-on ブランチをチェックアウトすることで，穴埋め方式で Unidux (+α) のアウトプットを行うことができます．
+
 ## Dependencies
 
 * Unity 2020.3.14f1
