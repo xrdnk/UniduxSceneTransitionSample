@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using Unidux.SceneTransition;
 using UniRx;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
     /// シーンの状態に変更が発生した際に監視するクラス

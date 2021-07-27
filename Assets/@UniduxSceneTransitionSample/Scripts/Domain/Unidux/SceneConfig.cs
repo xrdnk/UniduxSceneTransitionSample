@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
     /// シーン設定を行うクラス

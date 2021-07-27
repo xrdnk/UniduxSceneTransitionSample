@@ -1,5 +1,5 @@
 ﻿using Denity.UniduxSceneTransitionSample.PageData;
-using Denity.UniduxSceneTransitionSample.SceneTransition;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
 using UniRx;
 

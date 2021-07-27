@@ -1,6 +1,6 @@
 ﻿using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
     /// ページ状態を変更するクラス

@@ -3,7 +3,7 @@ using Unidux;
 using UniRx;
 using UnityEngine;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
     /// StoreAccessor実装クラスであるUnidux

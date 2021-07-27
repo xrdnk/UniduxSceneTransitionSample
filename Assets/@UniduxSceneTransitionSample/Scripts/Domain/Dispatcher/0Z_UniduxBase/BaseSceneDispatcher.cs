@@ -1,4 +1,4 @@
-using Denity.UniduxSceneTransitionSample.SceneTransition;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
 
 namespace Denity.UniduxSceneTransitionSample.Dispatcher

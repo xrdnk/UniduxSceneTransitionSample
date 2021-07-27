@@ -2,7 +2,7 @@
 using Unidux;
 using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     [Serializable]
     public class State : StateBase

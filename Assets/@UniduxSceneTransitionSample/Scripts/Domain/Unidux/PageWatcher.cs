@@ -2,7 +2,7 @@
 using Unidux.SceneTransition;
 using UniRx;
 
-namespace Denity.UniduxSceneTransitionSample.SceneTransition
+namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
     /// ページの状態に変更が発生した際に監視するクラス

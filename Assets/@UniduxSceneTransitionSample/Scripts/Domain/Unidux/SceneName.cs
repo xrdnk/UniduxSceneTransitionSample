@@ -1,4 +1,4 @@
-﻿namespace Denity.UniduxSceneTransitionSample.SceneTransition
+﻿namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     public enum SceneName
     {

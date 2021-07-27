@@ -1,5 +1,5 @@
 ﻿using Denity.UniduxSceneTransitionSample.Dispatcher;
-using Denity.UniduxSceneTransitionSample.SceneTransition;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.Context
