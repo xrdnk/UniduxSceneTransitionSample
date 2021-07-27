@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 1668061538}
   - component: {fileID: 1668061539}
   m_Layer: 0
-  m_Name: Unidux
+  m_Name: UniduxCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

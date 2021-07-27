@@ -10,7 +10,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
         {
             // 次画面に移行．ここではMainPageDataの初期化も行いたいので，新たにMainPageDataのインスタンスを作成 → Push
             var action = PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Main, new MainPageData());
-            SceneTransition.Unidux.Dispatch(action);
+            UniduxCore.Dispatch(action);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Denity.UniduxSceneTransitionSample.SceneTransition
     /// <summary>
     /// StoreAccessor実装クラスであるUnidux
     /// </summary>
-    public sealed class Unidux : SingletonMonoBehaviour<Unidux>, IStoreAccessor
+    public sealed class UniduxCore : SingletonMonoBehaviour<UniduxCore>, IStoreAccessor
     {
         public TextAsset InitialStateJson;
 

@@ -15,10 +15,10 @@ namespace Denity.UniduxSceneTransitionSample.SceneTransition
 
         public void Initialize()
         {
-            Unidux.Subject
+            UniduxCore.Subject
                 // ページ状態が変更され，準備完了に移行している場合
                 .Where(state => state.Page.IsStateChanged)
-                .StartWith(Unidux.State)
+                .StartWith(UniduxCore.State)
                 .Where(state => state.Page.IsReady)
                 .Subscribe(UpdatePage)
                 .AddTo(_disposable);
@@ -33,7 +33,7 @@ namespace Denity.UniduxSceneTransitionSample.SceneTransition
         {
             if (state.Scene.NeedsAdjust(_config.GetPageScenes(), _config.PageMap[state.Page.Current.Page]))
             {
-                Unidux.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Adjust());
+                UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Adjust());
             }
         }
     }

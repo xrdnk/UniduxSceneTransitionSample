@@ -7,8 +7,8 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
     {
         public void Originate()
         {
-            SceneTransition.Unidux.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Reset());
-            SceneTransition.Unidux.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Title));
+            UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Reset());
+            UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Title));
         }
     }
 }

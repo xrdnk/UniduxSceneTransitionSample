@@ -14,7 +14,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
 
         public void Originate()
         {
-            _pageData = SceneTransition.Unidux.State.Page.GetData<ResultPageData>();
+            _pageData = UniduxCore.State.Page.GetData<ResultPageData>();
             _damageDoneRp = new DoubleReactiveProperty(_pageData.DamageDone);
         }
 
@@ -22,7 +22,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
         {
             // これまでの情報を破棄してタイトル画面に戻る → Replace
             var action = PageDuck<PageName, SceneName>.ActionCreator.Replace(PageName.Title);
-            SceneTransition.Unidux.Dispatch(action);
+            UniduxCore.Dispatch(action);
         }
     }
 }

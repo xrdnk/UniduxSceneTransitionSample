@@ -14,9 +14,9 @@ namespace Denity.UniduxSceneTransitionSample.SceneTransition
 
         public void Initialize()
         {
-            Unidux.Subject
+            UniduxCore.Subject
                 .Where(state => state.Scene.IsStateChanged)
-                .StartWith(Unidux.State)
+                .StartWith(UniduxCore.State)
                 .Subscribe(state => _ = ChangeScenes(state.Scene))
                 .AddTo(_disposable);
         }

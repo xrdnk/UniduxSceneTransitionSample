@@ -19,8 +19,8 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
         public void Originate()
         {
             // Uniduxから現状のページデータであるMainGameDataを取得する
-            _godHp = SceneTransition.Unidux.State.Page.GetData<MainPageData>().GodHp;
-            _damageDone = SceneTransition.Unidux.State.Page.GetData<MainPageData>().DamageDone;
+            _godHp = UniduxCore.State.Page.GetData<MainPageData>().GodHp;
+            _damageDone = UniduxCore.State.Page.GetData<MainPageData>().DamageDone;
             _mainPageData = new MainPageData(_godHp, _damageDone);
 
             _godHpRp = new DoubleReactiveProperty(_godHp);
@@ -43,7 +43,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
             _mainPageData.DamageDone = _damageDone;
             var action = PageDuck<PageName, SceneName>.ActionCreator.SetData(_mainPageData);
             // ディスパッチ
-            SceneTransition.Unidux.Dispatch(action);
+            UniduxCore.Dispatch(action);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
             // 情報をリザルト画面に引継ぎつつ画面遷移 → Push
             var action = PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Result, resultPageData);
             // ディスパッチ
-            SceneTransition.Unidux.Dispatch(action);
+            UniduxCore.Dispatch(action);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Denity.UniduxSceneTransitionSample.Dispatcher
         {
             // タイトル画面に戻る → 前のページに戻る Pop
             var action = PageDuck<PageName, SceneName>.ActionCreator.Pop();
-            SceneTransition.Unidux.Dispatch(action);
+            UniduxCore.Dispatch(action);
         }
 
         public void Dispose()
