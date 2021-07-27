@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Denity.UniduxSceneTransitionSample.Unidux
 {
     /// <summary>
-    /// StoreAccessor実装クラスであるUnidux
+    /// Uniduxのコアサービスクラス
     /// </summary>
     public sealed class UniduxCore : SingletonMonoBehaviour<UniduxCore>, IStoreAccessor
     {

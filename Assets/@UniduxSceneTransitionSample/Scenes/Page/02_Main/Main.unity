@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonAttackGod: {fileID: 1710555666}
-  _buttonLoadResultPage: {fileID: 1127007122}
+  _buttonEnterResultPage: {fileID: 1127007122}
   _buttonReturnTitlePage: {fileID: 628995905}
   _textGodHp: {fileID: 273953465}
 --- !u!1 &1127007120
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 1127007123}
   - component: {fileID: 1127007122}
   m_Layer: 5
-  m_Name: Button_LoadResult
+  m_Name: Button_EnterResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 1710555667}
   - component: {fileID: 1710555666}
   m_Layer: 5
-  m_Name: Button_Attack
+  m_Name: Button_AttackGod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

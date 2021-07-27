@@ -7,8 +7,9 @@ namespace Denity.UniduxSceneTransitionSample.Transitioner
     {
         /// <summary>
         /// タイトル画面に遷移する
+        /// 全く違う画面に遷移する場合はGoToXXXXPageと書く
         /// </summary>
-        public void ReturnTitlePage()
+        public void GoToTitlePage()
         {
             // これまでの情報を破棄してタイトル画面に戻る → Replaceでディスパッチ
             UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Replace(PageName.Title));

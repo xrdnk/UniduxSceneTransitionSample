@@ -3,6 +3,9 @@ using Unidux.SceneTransition;
 
 namespace Denity.UniduxSceneTransitionSample.PageData
 {
+    /// <summary>
+    /// ゲーム画面用のページデータ
+    /// </summary>
     [Serializable]
     public class MainPageData : IPageData
     {

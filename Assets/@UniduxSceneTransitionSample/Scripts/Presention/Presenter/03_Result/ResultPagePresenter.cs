@@ -31,8 +31,8 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .Subscribe(_view.DisplayResult)
                 .AddTo(_disposable);
 
-            _view.OnReturnTitleTriggerAsObservable()
-                .Subscribe(_ => _transitioner.ReturnTitlePage())
+            _view.OnGoToTitleTriggerAsObservable()
+                .Subscribe(_ => _transitioner.GoToTitlePage())
                 .AddTo(_disposable);
         }
 

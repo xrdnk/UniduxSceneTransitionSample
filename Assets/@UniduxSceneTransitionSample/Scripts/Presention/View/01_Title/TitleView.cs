@@ -11,20 +11,20 @@ namespace Denity.UniduxSceneTransitionSample.View
     /// </summary>
     public class TitleView : UIViewBase
     {
-        [SerializeField] Button _buttonGameStart;
+        [SerializeField] Button _buttonEnterMainPage;
         [SerializeField] Button _buttonShowLicence;
 
-        readonly Subject<Unit> _gameStartSubject = new Subject<Unit>();
-        public IObservable<Unit> OnGameStartAsObservable() => _gameStartSubject;
+        readonly Subject<Unit> _enterMainSubject = new Subject<Unit>();
+        public IObservable<Unit> OnEnterMainAsObservable() => _enterMainSubject;
 
         readonly Subject<Unit> _showLicence = new Subject<Unit>();
         public IObservable<Unit> OnShowLicenceAsObservable() => _showLicence;
 
         protected override void Awake()
         {
-            _buttonGameStart
+            _buttonEnterMainPage
                 .OnClickAsObservable()
-                .Subscribe(_ => _gameStartSubject.OnNext(Unit.Default))
+                .Subscribe(_ => _enterMainSubject.OnNext(Unit.Default))
                 .AddTo(this);
 
             _buttonShowLicence

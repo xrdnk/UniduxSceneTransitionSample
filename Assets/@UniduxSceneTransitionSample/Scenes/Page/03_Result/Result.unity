@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 291640578}
   - component: {fileID: 291640577}
   m_Layer: 5
-  m_Name: Button_ReturnTitle
+  m_Name: Button_GoToTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd3b0fa1af04608a13bbf7e2df57ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonReturnTitle: {fileID: 291640577}
+  _buttonGoToTitle: {fileID: 291640577}
   _textResult: {fileID: 434880132}
 --- !u!1 &1144307893
 GameObject:

@@ -8,6 +8,7 @@ namespace Denity.UniduxSceneTransitionSample.Transitioner
     {
         /// <summary>
         /// リザルト画面に遷移する処理
+        /// 次に遷移する場合はEnterXXXXPageと書く
         /// </summary>
         public void EnterResultPage()
         {
@@ -19,6 +20,7 @@ namespace Denity.UniduxSceneTransitionSample.Transitioner
 
         /// <summary>
         /// タイトル画面に遷移する処理
+        /// 前に遷移する場合はReturnXXXXPageと書く
         /// </summary>
         public void ReturnTitlePage()
         {

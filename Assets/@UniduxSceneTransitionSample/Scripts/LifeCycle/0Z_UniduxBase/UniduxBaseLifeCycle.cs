@@ -4,6 +4,13 @@ using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.LifeCycle
 {
+    /// <summary>
+    /// UniduxServiceScene用のライフサイクルクラス
+    /// <remarks>
+    /// AwakeでRegisterしたTransitioner・Viewを除くクラスの初期化処理を行い，
+    /// OnDestroyでRegisterしたTransitioner・Viewを除くクラスの終端処理を行う
+    /// </remarks>
+    /// </summary>
     public class UniduxBaseLifeCycle : MonoInstaller
     {
         public override void InstallBindings()

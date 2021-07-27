@@ -1,5 +1,4 @@
-﻿using System;
-using Denity.UniduxSceneTransitionSample.Service;
+﻿using Denity.UniduxSceneTransitionSample.Service;
 using Unidux.SceneTransition;
 using UniRx;
 

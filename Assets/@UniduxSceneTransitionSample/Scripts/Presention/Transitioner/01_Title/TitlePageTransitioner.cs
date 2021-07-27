@@ -8,6 +8,7 @@ namespace Denity.UniduxSceneTransitionSample.Transitioner
     {
         /// <summary>
         /// ゲーム画面に遷移する
+        /// 次に遷移する場合はEnterXXXXPageと書く
         /// </summary>
         public void EnterMainPage()
         {

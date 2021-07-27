@@ -12,17 +12,17 @@ namespace Denity.UniduxSceneTransitionSample.View
     /// </summary>
     public class ResultPageView : UIViewBase
     {
-        [SerializeField] Button _buttonReturnTitle;
+        [SerializeField] Button _buttonGoToTitle;
         [SerializeField] TMP_Text _textResult;
 
-        readonly Subject<Unit> _returnTitleSubject = new Subject<Unit>();
-        public IObservable<Unit> OnReturnTitleTriggerAsObservable() => _returnTitleSubject;
+        readonly Subject<Unit> _goToTitleSubject = new Subject<Unit>();
+        public IObservable<Unit> OnGoToTitleTriggerAsObservable() => _goToTitleSubject;
 
         protected override void Awake()
         {
-            _buttonReturnTitle
+            _buttonGoToTitle
                 .OnClickAsObservable()
-                .Subscribe(_ => _returnTitleSubject.OnNext(Unit.Default))
+                .Subscribe(_ => _goToTitleSubject.OnNext(Unit.Default))
                 .AddTo(this);
         }
 

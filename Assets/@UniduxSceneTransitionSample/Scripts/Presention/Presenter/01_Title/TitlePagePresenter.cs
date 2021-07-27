@@ -26,7 +26,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
 
         public void Originate()
         {
-            _view.OnGameStartAsObservable()
+            _view.OnEnterMainAsObservable()
                 .Subscribe(_ => _transitioner.EnterMainPage())
                 .AddTo(_disposable);
         }

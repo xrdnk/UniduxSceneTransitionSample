@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 95458413}
   - component: {fileID: 95458412}
   m_Layer: 5
-  m_Name: Button_StartGame
+  m_Name: Button_EnterGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d389bd934ba378b49bf1caa14aaca10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonGameStart: {fileID: 95458412}
+  _buttonEnterMainPage: {fileID: 95458412}
   _buttonShowLicence: {fileID: 259426563}
 --- !u!1 &1069646720
 GameObject:
@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 1131002410}
   - component: {fileID: 1131002409}
   m_Layer: 5
-  m_Name: Button_Licence
+  m_Name: Button_HideLicence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

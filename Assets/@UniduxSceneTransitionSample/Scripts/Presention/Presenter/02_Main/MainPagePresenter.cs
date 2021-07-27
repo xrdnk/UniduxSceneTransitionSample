@@ -37,7 +37,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .Subscribe(_view.DisplayGodHp)
                 .AddTo(_disposable);
 
-            _view.OnLoadResultAsObservable()
+            _view.OnEnterResultAsObservable()
                 .Subscribe(_ => _transitioner.EnterResultPage())
                 .AddTo(_disposable);
 

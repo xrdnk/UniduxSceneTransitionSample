@@ -7,6 +7,13 @@ using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.LifeCycle
 {
+    /// <summary>
+    /// タイトル画面のライフサイクルクラス
+    /// <remarks>
+    /// AwakeでRegisterしたTransitioner・Viewを除くクラスの初期化処理を行い，
+    /// OnDestroyでRegisterしたTransitioner・Viewを除くクラスの終端処理を行う
+    /// </remarks>
+    /// </summary>
     public class TitlePageLifeCycle : MonoInstaller
     {
         [SerializeField] TitleView _titleView;
@@ -24,7 +31,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
             Container.BindInterfacesAndSelfTo<TitlePagePresenter>().AsSingle();
         }
 
-        TitlePageNavigator _navigator;
+        INavigator _navigator;
         TitlePagePresenter _presenter;
 
         void Awake()

@@ -7,6 +7,13 @@ using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.LifeCycle
 {
+    /// <summary>
+    /// ゲーム画面用のライフサイクルクラス
+    /// <remarks>
+    /// AwakeでRegisterしたTransitioner・Viewを除くクラスの初期化処理を行い，
+    /// OnDestroyでRegisterしたTransitioner・Viewを除くクラスの終端処理を行う
+    /// </remarks>
+    /// </summary>
     public class MainPageLifeCycle : MonoInstaller
     {
         [SerializeField] MainPageView _view;

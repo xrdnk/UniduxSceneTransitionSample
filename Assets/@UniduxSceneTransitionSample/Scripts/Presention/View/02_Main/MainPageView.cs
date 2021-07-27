@@ -13,15 +13,15 @@ namespace Denity.UniduxSceneTransitionSample.View
     public class MainPageView : UIViewBase
     {
         [SerializeField] Button _buttonAttackGod;
-        [SerializeField] Button _buttonLoadResultPage;
+        [SerializeField] Button _buttonEnterResultPage;
         [SerializeField] Button _buttonReturnTitlePage;
         [SerializeField] TMP_Text _textGodHp;
 
         readonly Subject<Unit> _attackedSubject = new Subject<Unit>();
         public IObservable<Unit> OnAttackedAsObservable() => _attackedSubject;
 
-        readonly Subject<Unit> _loadResultSubject = new Subject<Unit>();
-        public IObservable<Unit> OnLoadResultAsObservable() => _loadResultSubject;
+        readonly Subject<Unit> _enterResultSubject = new Subject<Unit>();
+        public IObservable<Unit> OnEnterResultAsObservable() => _enterResultSubject;
 
         readonly Subject<Unit> _returnTitleSubject = new Subject<Unit>();
         public IObservable<Unit> OnReturnTitleAsObservable() => _returnTitleSubject;
@@ -33,9 +33,9 @@ namespace Denity.UniduxSceneTransitionSample.View
                 .Subscribe(_ => _attackedSubject.OnNext(Unit.Default))
                 .AddTo(this);
 
-            _buttonLoadResultPage
+            _buttonEnterResultPage
                 .OnClickAsObservable()
-                .Subscribe(_ => _loadResultSubject.OnNext(Unit.Default))
+                .Subscribe(_ => _enterResultSubject.OnNext(Unit.Default))
                 .AddTo(this);
 
             _buttonReturnTitlePage
