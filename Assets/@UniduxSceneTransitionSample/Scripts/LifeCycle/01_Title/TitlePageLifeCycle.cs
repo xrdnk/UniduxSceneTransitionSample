@@ -1,4 +1,4 @@
-using Denity.UniduxSceneTransitionSample.Dispatcher;
+using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Navigator;
 using Denity.UniduxSceneTransitionSample.Presenter;
 using Denity.UniduxSceneTransitionSample.View;
@@ -15,7 +15,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
         public override void InstallBindings()
         {
             // Register
-            Container.BindInterfacesAndSelfTo<TitlePageDispatcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TitlePageTransitioner>().AsSingle();
             Container.BindInstance(_titleView);
             Container.Bind<UIViewBase>().FromInstance(_titleView);
             Container.BindInstance(_licenceView);

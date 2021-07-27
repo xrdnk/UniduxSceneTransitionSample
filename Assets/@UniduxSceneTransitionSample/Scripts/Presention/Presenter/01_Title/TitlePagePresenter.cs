@@ -1,4 +1,4 @@
-﻿using Denity.UniduxSceneTransitionSample.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
 using Zenject;
@@ -12,14 +12,14 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     /// </summary>
     public class TitlePagePresenter : IPresenter
     {
-        readonly TitlePageDispatcher _dispatcher;
+        readonly TitlePageTransitioner _transitioner;
         readonly TitleView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public TitlePagePresenter(TitlePageDispatcher dispatcher, TitleView view)
+        public TitlePagePresenter(TitlePageTransitioner transitioner, TitleView view)
         {
-            _dispatcher = dispatcher;
+            _transitioner = transitioner;
             _view = view;
             _disposable = new CompositeDisposable();
         }
@@ -27,7 +27,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
         public void Originate()
         {
             _view.OnGameStartAsObservable()
-                .Subscribe(_ => _dispatcher.EnterMainPage())
+                .Subscribe(_ => _transitioner.EnterMainPage())
                 .AddTo(_disposable);
         }
 

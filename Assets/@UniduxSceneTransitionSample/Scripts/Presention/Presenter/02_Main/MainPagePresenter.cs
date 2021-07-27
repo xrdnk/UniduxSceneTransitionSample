@@ -1,4 +1,4 @@
-﻿using Denity.UniduxSceneTransitionSample.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
@@ -14,15 +14,15 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class MainPagePresenter : IPresenter
     {
         readonly MainPageService _service;
-        readonly MainPageDispatcher _dispatcher;
+        readonly MainPageTransitioner _transitioner;
         readonly MainPageView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public MainPagePresenter(MainPageService service, MainPageDispatcher dispatcher, MainPageView view)
+        public MainPagePresenter(MainPageService service, MainPageTransitioner transitioner, MainPageView view)
         {
             _service = service;
-            _dispatcher = dispatcher;
+            _transitioner = transitioner;
             _view = view;
             _disposable = new CompositeDisposable();
         }
@@ -38,11 +38,11 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .AddTo(_disposable);
 
             _view.OnLoadResultAsObservable()
-                .Subscribe(_ => _dispatcher.EnterResultPage())
+                .Subscribe(_ => _transitioner.EnterResultPage())
                 .AddTo(_disposable);
 
             _view.OnReturnTitleAsObservable()
-                .Subscribe(_ => _dispatcher.ReturnTitlePage())
+                .Subscribe(_ => _transitioner.ReturnTitlePage())
                 .AddTo(_disposable);
         }
 

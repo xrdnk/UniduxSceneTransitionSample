@@ -1,9 +1,9 @@
 using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.Dispatcher
+namespace Denity.UniduxSceneTransitionSample.Transitioner
 {
-    public class BaseSceneDispatcher
+    public class BaseSceneTransitioner
     {
         /// <summary>
         /// タイトル画面に遷移する

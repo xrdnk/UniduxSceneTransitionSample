@@ -2,9 +2,9 @@
 using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.Dispatcher
+namespace Denity.UniduxSceneTransitionSample.Transitioner
 {
-    public class MainPageDispatcher
+    public class MainPageTransitioner
     {
         /// <summary>
         /// リザルト画面に遷移する処理

@@ -1,4 +1,4 @@
-﻿using Denity.UniduxSceneTransitionSample.Dispatcher;
+﻿using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
@@ -13,14 +13,14 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class ResultPagePresenter : IPresenter
     {
         readonly ResultPageService _service;
-        readonly ResultPageDispatcher _dispatcher;
+        readonly ResultPageTransitioner _transitioner;
         readonly ResultPageView _view;
         readonly CompositeDisposable _disposable;
 
-        public ResultPagePresenter(ResultPageService service, ResultPageDispatcher dispatcher, ResultPageView view)
+        public ResultPagePresenter(ResultPageService service, ResultPageTransitioner transitioner, ResultPageView view)
         {
             _service = service;
-            _dispatcher = dispatcher;
+            _transitioner = transitioner;
             _view = view;
             _disposable = new CompositeDisposable();
         }
@@ -32,7 +32,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .AddTo(_disposable);
 
             _view.OnReturnTitleTriggerAsObservable()
-                .Subscribe(_ => _dispatcher.ReturnTitlePage())
+                .Subscribe(_ => _transitioner.ReturnTitlePage())
                 .AddTo(_disposable);
         }
 

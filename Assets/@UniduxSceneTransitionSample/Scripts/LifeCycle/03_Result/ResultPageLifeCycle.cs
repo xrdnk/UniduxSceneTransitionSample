@@ -1,4 +1,4 @@
-using Denity.UniduxSceneTransitionSample.Dispatcher;
+using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Presenter;
 using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
@@ -15,7 +15,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
         {
             // Register
             Container.BindInterfacesAndSelfTo<ResultPageService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ResultPageDispatcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResultPageTransitioner>().AsSingle();
             Container.BindInstance(_view);
             Container.Bind<UIViewBase>().FromInstance(_view);
             Container.BindInterfacesAndSelfTo<ResultPagePresenter>().AsSingle();
