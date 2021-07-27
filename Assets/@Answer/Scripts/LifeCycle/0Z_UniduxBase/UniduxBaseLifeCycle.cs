@@ -1,0 +1,41 @@
+using Denity.UniduxSceneTransitionSample.Answer.Dispatcher;
+using Denity.UniduxSceneTransitionSample.Answer.Unidux;
+using Zenject;
+
+namespace Denity.UniduxSceneTransitionSample.Answer.LifeCycle
+{
+    public class UniduxBaseLifeCycle : MonoInstaller
+    {
+        public override void InstallBindings()
+        {
+            // Register
+            Container.BindInterfacesAndSelfTo<SceneWatcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PageWatcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BaseSceneDispatcher>().AsSingle();
+        }
+
+        PageWatcher _pageWatcher;
+        SceneWatcher _sceneWatcher;
+        BaseSceneDispatcher _dispatcher;
+
+        void Awake()
+        {
+            // Resolve
+            _pageWatcher = Container.Resolve<PageWatcher>();
+            _sceneWatcher = Container.Resolve<SceneWatcher>();
+            _dispatcher = Container.Resolve<BaseSceneDispatcher>();
+
+            // Originate
+            _pageWatcher.Originate();
+            _sceneWatcher.Originate();
+            _dispatcher.Originate();
+        }
+
+        void OnDestroy()
+        {
+            // Terminate
+            _pageWatcher.Dispose();
+            _sceneWatcher.Dispose();
+        }
+    }
+}
