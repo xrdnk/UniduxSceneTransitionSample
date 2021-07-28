@@ -31,7 +31,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
             Container.BindInterfacesAndSelfTo<TitlePagePresenter>().AsSingle();
         }
 
-        INavigator _navigator;
+        TitlePageNavigator _navigator;
         TitlePagePresenter _presenter;
 
         void Awake()

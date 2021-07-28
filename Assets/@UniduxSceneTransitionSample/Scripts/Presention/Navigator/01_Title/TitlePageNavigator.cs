@@ -1,10 +1,11 @@
-﻿using Denity.UniduxSceneTransitionSample.View;
+﻿using Denity.UniduxSceneTransitionSample.Progression;
+using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
 using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.Navigator
 {
-    public class TitlePageNavigator : INavigator
+    public class TitlePageNavigator : IPeriod
     {
         readonly TitleView _titleView;
         readonly LicenceView _licenceView;
