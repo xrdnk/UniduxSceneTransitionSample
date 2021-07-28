@@ -1,11 +1,12 @@
 ﻿using Denity.UniduxSceneTransitionSample.PageData;
+using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
 using UniRx;
 
 namespace Denity.UniduxSceneTransitionSample.Service
 {
-    public class MainPageService : IService
+    public class MainPageService : IPeriod
     {
         MainPageData _mainPageData;
 
@@ -46,7 +47,8 @@ namespace Denity.UniduxSceneTransitionSample.Service
             _mainPageData.DamageDone = _damageDone;
 
             // データの更新 → SetData でディスパッチ
-            UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.SetData(_mainPageData));
+            var setDataAction = PageDuck<PageName, SceneName>.ActionCreator.SetData(_mainPageData);
+            UniduxCore.Dispatch(setDataAction);
         }
     }
 }

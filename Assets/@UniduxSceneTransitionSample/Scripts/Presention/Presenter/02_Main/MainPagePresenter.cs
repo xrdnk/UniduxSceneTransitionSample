@@ -1,4 +1,5 @@
-﻿using Denity.UniduxSceneTransitionSample.Transitioner;
+﻿using Denity.UniduxSceneTransitionSample.Progression;
+using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
@@ -11,7 +12,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     /// 純粋にViewからDomain，DomainからViewの処理の橋渡し役
     /// ここでの処理は初期化順等を伴わないものとする
     /// </summary>
-    public class MainPagePresenter : IPresenter
+    public class MainPagePresenter : IPeriod
     {
         readonly MainPageService _service;
         readonly MainPageTransitioner _transitioner;

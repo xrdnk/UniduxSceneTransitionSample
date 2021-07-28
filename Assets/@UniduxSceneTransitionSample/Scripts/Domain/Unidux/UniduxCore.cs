@@ -37,8 +37,7 @@ namespace Denity.UniduxSceneTransitionSample.Unidux
         }
 
         private static State InitialState =>
-            Instance.InitialStateJson != null
-                ? UniduxSetting.Serializer.Deserialize(
+            Instance.InitialStateJson != null ? UniduxSetting.Serializer.Deserialize(
                     Encoding.UTF8.GetBytes(Instance.InitialStateJson.text),
                     typeof(State)
                 ) as State

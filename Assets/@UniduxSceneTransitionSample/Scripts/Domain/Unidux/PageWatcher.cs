@@ -1,4 +1,4 @@
-﻿using Denity.UniduxSceneTransitionSample.Service;
+﻿using Denity.UniduxSceneTransitionSample.Progression;
 using Unidux.SceneTransition;
 using UniRx;
 
@@ -7,7 +7,7 @@ namespace Denity.UniduxSceneTransitionSample.Unidux
     /// <summary>
     /// ページの状態に変更が発生した際に監視するクラス
     /// </summary>
-    public class PageWatcher : IService
+    public class PageWatcher : IPeriod
     {
         ISceneConfig<SceneName, PageName> _config = new SceneConfig();
         string _currentPageName;

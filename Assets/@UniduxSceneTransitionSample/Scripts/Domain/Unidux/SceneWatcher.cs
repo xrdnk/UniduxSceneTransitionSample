@@ -1,6 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Denity.UniduxSceneTransitionSample.Service;
+using Denity.UniduxSceneTransitionSample.Progression;
 using Unidux.SceneTransition;
 using UniRx;
 
@@ -9,7 +9,7 @@ namespace Denity.UniduxSceneTransitionSample.Unidux
     /// <summary>
     /// シーンの状態に変更が発生した際に監視するクラス
     /// </summary>
-    public class SceneWatcher : IService
+    public class SceneWatcher : IPeriod
     {
         CompositeDisposable _disposable = new CompositeDisposable();
 
