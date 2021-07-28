@@ -26,6 +26,7 @@ Assets
 │  │      ├─0B_BBBB
 │  │      └─0Z_UniduxBase # Unidux Service Scene
 │  └─Scripts # スクリプトを格納するフォルダです
+│      ├─Progression # プログレッションレイヤー (初期化・終端処理・中断処理・実行処理等のライフサイクル処理を定める) 
 │      ├─Application # アプリケーションレイヤー 
 │      │  └─Context # コンテキストレイヤー (初期化・終端処理以外のDomain間の実行処理順番を定めたり，フローの調整を司ります) <<基本MonoBehaviourを継承しない>>
 │      │      ├─01_Title 
