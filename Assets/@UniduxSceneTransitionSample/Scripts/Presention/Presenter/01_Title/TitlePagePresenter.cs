@@ -13,12 +13,12 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     /// </summary>
     public class TitlePagePresenter : IPeriod
     {
-        readonly TitlePageTransitioner _transitioner;
+        readonly SceneTransitioner _transitioner;
         readonly TitleView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public TitlePagePresenter(TitlePageTransitioner transitioner, TitleView view)
+        public TitlePagePresenter(SceneTransitioner transitioner, TitleView view)
         {
             _transitioner = transitioner;
             _view = view;

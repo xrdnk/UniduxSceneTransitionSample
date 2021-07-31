@@ -22,7 +22,6 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
         public override void InstallBindings()
         {
             // Register
-            Container.BindInterfacesAndSelfTo<TitlePageTransitioner>().AsSingle();
             Container.BindInstance(_titleView);
             Container.Bind<UIViewBase>().FromInstance(_titleView);
             Container.BindInstance(_licenceView);

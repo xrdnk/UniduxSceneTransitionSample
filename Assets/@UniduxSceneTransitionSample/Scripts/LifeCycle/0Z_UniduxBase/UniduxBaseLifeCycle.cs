@@ -18,19 +18,19 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
             // Register
             Container.BindInterfacesAndSelfTo<SceneWatcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<PageWatcher>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BaseSceneTransitioner>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SceneTransitioner>().AsSingle();
         }
 
         PageWatcher _pageWatcher;
         SceneWatcher _sceneWatcher;
-        BaseSceneTransitioner _transitioner;
+        SceneTransitioner _transitioner;
 
         void Awake()
         {
             // Resolve
             _pageWatcher = Container.Resolve<PageWatcher>();
             _sceneWatcher = Container.Resolve<SceneWatcher>();
-            _transitioner = Container.Resolve<BaseSceneTransitioner>();
+            _transitioner = Container.Resolve<SceneTransitioner>();
 
             // Originate
             _pageWatcher.Originate();

@@ -14,11 +14,11 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class ResultPagePresenter : IPeriod
     {
         readonly ResultPageService _service;
-        readonly ResultPageTransitioner _transitioner;
+        readonly SceneTransitioner _transitioner;
         readonly ResultPageView _view;
         readonly CompositeDisposable _disposable;
 
-        public ResultPagePresenter(ResultPageService service, ResultPageTransitioner transitioner, ResultPageView view)
+        public ResultPagePresenter(ResultPageService service, SceneTransitioner transitioner, ResultPageView view)
         {
             _service = service;
             _transitioner = transitioner;
