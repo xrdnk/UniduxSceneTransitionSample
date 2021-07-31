@@ -1,7 +1,10 @@
-﻿using Denity.UniduxSceneTransitionSample.Progression;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.Presenter
@@ -27,9 +30,15 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
 
         public void Originate()
         {
-            _view.OnEnterMainAsObservable()
-                .Subscribe(_ => _transitioner.EnterMainPage())
-                .AddTo(_disposable);
+            _view.ButtonEnterMainPage
+                .BindToOnClick(_transitioner.TransitionTriggerProperty, _ =>
+                {
+                    Debug.Log("Transitioning... ");
+                    _view.ButtonShowLicence.interactable = false;
+                    return _transitioner.EnterMainPage()
+                        .ToObservable()
+                        .ForEachAsync(_ => Debug.Log("Transition Done."));
+                });
         }
 
         public void Terminate()

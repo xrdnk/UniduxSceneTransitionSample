@@ -1,12 +1,20 @@
-﻿using Denity.UniduxSceneTransitionSample.MainService.PageData;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using Denity.UniduxSceneTransitionSample.MainService.PageData;
 using Denity.UniduxSceneTransitionSample.ResultService;
 using Denity.UniduxSceneTransitionSample.Unidux;
 using Unidux.SceneTransition;
+using UniRx;
 
 namespace Denity.UniduxSceneTransitionSample.Transitioner
 {
     public class SceneTransitioner
     {
+        /// <summary>
+        /// 画面遷移トリガー
+        /// </summary>
+        public BoolReactiveProperty TransitionTriggerProperty { get; } = new BoolReactiveProperty(true);
+
         /// <summary>
         /// タイトル画面に遷移する
         /// 次の画面に遷移する時はEnterXXXXPageと書く
@@ -23,8 +31,9 @@ namespace Denity.UniduxSceneTransitionSample.Transitioner
         /// ゲーム画面に遷移する
         /// 次に遷移する場合はEnterXXXXPageと書く
         /// </summary>
-        public void EnterMainPage()
+        public async UniTask EnterMainPage()
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(2f));
             // 次画面に移行．ここではMainPageDataの初期化も行いたいので，新たにMainPageDataのインスタンスを作成 → Pushでディスパッチ
             UniduxCore.Dispatch(PageDuck<PageName, SceneName>.ActionCreator.Push(PageName.Main, new MainPageData()));
         }
