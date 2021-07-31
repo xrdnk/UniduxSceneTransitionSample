@@ -1,6 +1,6 @@
 ﻿using Denity.UniduxSceneTransitionSample.Progression;
+using Denity.UniduxSceneTransitionSample.ResultService;
 using Denity.UniduxSceneTransitionSample.Transitioner;
-using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
 

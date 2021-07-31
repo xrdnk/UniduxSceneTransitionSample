@@ -1,9 +1,8 @@
-﻿using Denity.UniduxSceneTransitionSample.PageData;
-using Denity.UniduxSceneTransitionSample.Progression;
+﻿using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.Unidux;
 using UniRx;
 
-namespace Denity.UniduxSceneTransitionSample.Service
+namespace Denity.UniduxSceneTransitionSample.ResultService
 {
     public class ResultPageService : IPeriod
     {
