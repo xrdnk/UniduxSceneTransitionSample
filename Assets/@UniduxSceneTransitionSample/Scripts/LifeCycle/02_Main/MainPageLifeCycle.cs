@@ -1,6 +1,5 @@
-using Denity.UniduxSceneTransitionSample.Transitioner;
+using Denity.UniduxSceneTransitionSample.MainService;
 using Denity.UniduxSceneTransitionSample.Presenter;
-using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UnityEngine;
 using Zenject;
@@ -20,7 +19,6 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<MainPageTransitioner>().AsSingle();
             Container.BindInterfacesAndSelfTo<MainPageService>().AsSingle();
             Container.BindInstance(_view);
             Container.Bind<UIViewBase>().FromInstance(_view);

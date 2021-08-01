@@ -1,6 +1,6 @@
-﻿using Denity.UniduxSceneTransitionSample.Progression;
+﻿using Denity.UniduxSceneTransitionSample.MainService;
+using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.Transitioner;
-using Denity.UniduxSceneTransitionSample.Service;
 using Denity.UniduxSceneTransitionSample.View;
 using UniRx;
 using Zenject;
@@ -15,12 +15,12 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class MainPagePresenter : IPeriod
     {
         readonly MainPageService _service;
-        readonly MainPageTransitioner _transitioner;
+        readonly SceneTransitioner _transitioner;
         readonly MainPageView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public MainPagePresenter(MainPageService service, MainPageTransitioner transitioner, MainPageView view)
+        public MainPagePresenter(MainPageService service, SceneTransitioner transitioner, MainPageView view)
         {
             _service = service;
             _transitioner = transitioner;

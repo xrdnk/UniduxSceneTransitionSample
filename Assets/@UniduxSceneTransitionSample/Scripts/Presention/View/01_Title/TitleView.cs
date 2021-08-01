@@ -14,19 +14,14 @@ namespace Denity.UniduxSceneTransitionSample.View
         [SerializeField] Button _buttonEnterMainPage;
         [SerializeField] Button _buttonShowLicence;
 
-        readonly Subject<Unit> _enterMainSubject = new Subject<Unit>();
-        public IObservable<Unit> OnEnterMainAsObservable() => _enterMainSubject;
+        public Button ButtonEnterMainPage => _buttonEnterMainPage;
+        public Button ButtonShowLicence => _buttonShowLicence;
 
         readonly Subject<Unit> _showLicence = new Subject<Unit>();
         public IObservable<Unit> OnShowLicenceAsObservable() => _showLicence;
 
         protected override void Awake()
         {
-            _buttonEnterMainPage
-                .OnClickAsObservable()
-                .Subscribe(_ => _enterMainSubject.OnNext(Unit.Default))
-                .AddTo(this);
-
             _buttonShowLicence
                 .OnClickAsObservable()
                 .Subscribe(_ => _showLicence.OnNext(Unit.Default))

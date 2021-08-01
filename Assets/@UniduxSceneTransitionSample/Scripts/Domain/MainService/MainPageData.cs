@@ -1,7 +1,7 @@
 using System;
 using Unidux.SceneTransition;
 
-namespace Denity.UniduxSceneTransitionSample.PageData
+namespace Denity.UniduxSceneTransitionSample.MainService.PageData
 {
     /// <summary>
     /// ゲーム画面用のページデータ
