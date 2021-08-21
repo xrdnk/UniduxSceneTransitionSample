@@ -43,13 +43,17 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "me.mattak.unidux": "0.4.2"
+    "me.mattak.unidux": "0.4.2",
+    "com.cysharp.messagepipe": "1.6.1",
+    "com.cysharp.messagepipe.zenject": "1.6.1"
   },
   "scopedRegistries": [
     {
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
+        "com.cysharp.messagepipe",
+        "com.cysharp.messagepipe.zenject",
         "com.cysharp.unitask",
         "com.neuecc.unirx",
         "com.openupm",

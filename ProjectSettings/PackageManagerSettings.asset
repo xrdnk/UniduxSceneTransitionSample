@@ -28,6 +28,8 @@ MonoBehaviour:
     m_Name: package.openupm.com
     m_Url: https://package.openupm.com
     m_Scopes:
+    - com.cysharp.messagepipe
+    - com.cysharp.messagepipe.zenject
     - com.cysharp.unitask
     - com.neuecc.unirx
     - com.openupm
@@ -44,6 +46,8 @@ MonoBehaviour:
       m_Name: package.openupm.com
       m_Url: https://package.openupm.com
       m_Scopes:
+      - com.cysharp.messagepipe
+      - com.cysharp.messagepipe.zenject
       - com.cysharp.unitask
       - com.neuecc.unirx
       - com.openupm
@@ -55,6 +59,8 @@ MonoBehaviour:
     m_Name: package.openupm.com
     m_Url: https://package.openupm.com
     m_Scopes:
+    - com.cysharp.messagepipe
+    - com.cysharp.messagepipe.zenject
     - com.cysharp.unitask
     - com.neuecc.unirx
     - com.openupm
