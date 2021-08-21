@@ -1,7 +1,11 @@
 ﻿using Denity.UniduxSceneTransitionSample.MainService;
+using Denity.UniduxSceneTransitionSample.MainService.PageData;
 using Denity.UniduxSceneTransitionSample.Progression;
+using Denity.UniduxSceneTransitionSample.ResultService;
 using Denity.UniduxSceneTransitionSample.Transitioner;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Denity.UniduxSceneTransitionSample.View;
+using MessagePipe;
 using UniRx;
 using Zenject;
 
@@ -15,15 +19,15 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class MainPagePresenter : IPeriod
     {
         readonly MainPageService _service;
-        readonly SceneTransitioner _transitioner;
+        readonly IPublisher<TransitionSignal> _transitionPublisher;
         readonly MainPageView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public MainPagePresenter(MainPageService service, SceneTransitioner transitioner, MainPageView view)
+        public MainPagePresenter(MainPageService service, IPublisher<TransitionSignal> transitionPublisher, MainPageView view)
         {
             _service = service;
-            _transitioner = transitioner;
+            _transitionPublisher = transitionPublisher;
             _view = view;
             _disposable = new CompositeDisposable();
         }
@@ -39,11 +43,16 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .AddTo(_disposable);
 
             _view.OnEnterResultAsObservable()
-                .Subscribe(_ => _transitioner.EnterResultPage())
+                .Subscribe(_ =>
+                {
+                    var mainPageData = UniduxCore.State.Page.GetData<MainPageData>();
+                    var resultPageData = new ResultPageData(mainPageData.DamageDone);
+                    _transitionPublisher.Publish(new TransitionSignal(PageName.Result, TransitionType.Push, resultPageData));
+                })
                 .AddTo(_disposable);
 
             _view.OnReturnTitleAsObservable()
-                .Subscribe(_ => _transitioner.ReturnTitlePage())
+                .Subscribe(_ => _transitionPublisher.Publish(new TransitionSignal(PageName.Title, TransitionType.Pop)))
                 .AddTo(_disposable);
         }
 

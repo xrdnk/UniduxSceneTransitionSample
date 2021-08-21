@@ -1,7 +1,9 @@
 ﻿using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.ResultService;
 using Denity.UniduxSceneTransitionSample.Transitioner;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Denity.UniduxSceneTransitionSample.View;
+using MessagePipe;
 using UniRx;
 
 namespace Denity.UniduxSceneTransitionSample.Presenter
@@ -14,15 +16,15 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     public class ResultPagePresenter : IPeriod
     {
         readonly ResultPageService _service;
-        readonly SceneTransitioner _transitioner;
         readonly ResultPageView _view;
+        readonly IPublisher<TransitionSignal> _transitionPublisher;
         readonly CompositeDisposable _disposable;
 
-        public ResultPagePresenter(ResultPageService service, SceneTransitioner transitioner, ResultPageView view)
+        public ResultPagePresenter(ResultPageService service, IPublisher<TransitionSignal> transitionPublisher, ResultPageView view)
         {
             _service = service;
-            _transitioner = transitioner;
             _view = view;
+            _transitionPublisher = transitionPublisher;
             _disposable = new CompositeDisposable();
         }
 
@@ -33,7 +35,7 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
                 .AddTo(_disposable);
 
             _view.OnGoToTitleTriggerAsObservable()
-                .Subscribe(_ => _transitioner.GoToTitlePage())
+                .Subscribe(_ => _transitionPublisher.Publish(new TransitionSignal(PageName.Title, TransitionType.Replace)))
                 .AddTo(_disposable);
         }
 

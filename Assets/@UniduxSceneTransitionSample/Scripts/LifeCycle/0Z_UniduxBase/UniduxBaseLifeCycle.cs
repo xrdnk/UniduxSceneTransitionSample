@@ -1,5 +1,6 @@
 using Denity.UniduxSceneTransitionSample.Transitioner;
 using Denity.UniduxSceneTransitionSample.Unidux;
+using MessagePipe;
 using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.LifeCycle
@@ -15,7 +16,11 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
     {
         public override void InstallBindings()
         {
-            // Register
+            // Register Signal
+            var option = Container.BindMessagePipe();
+            Container.BindMessageBroker<TransitionSignal>(option);
+
+            // Register Domains
             Container.BindInterfacesAndSelfTo<SceneWatcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<PageWatcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<SceneTransitioner>().AsSingle();
@@ -24,6 +29,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
         PageWatcher _pageWatcher;
         SceneWatcher _sceneWatcher;
         SceneTransitioner _transitioner;
+        IPublisher<TransitionSignal> _transitionPublisher;
 
         void Awake()
         {
@@ -31,11 +37,15 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
             _pageWatcher = Container.Resolve<PageWatcher>();
             _sceneWatcher = Container.Resolve<SceneWatcher>();
             _transitioner = Container.Resolve<SceneTransitioner>();
+            _transitionPublisher = Container.Resolve<IPublisher<TransitionSignal>>();
 
             // Originate
             _pageWatcher.Originate();
             _sceneWatcher.Originate();
-            _transitioner.EnterTitlePage();
+            _transitioner.Originate();
+
+            // At first, Transit to Title Page
+            _transitionPublisher.Publish(new TransitionSignal(PageName.Title, TransitionType.Push));
         }
 
         void OnDestroy()
@@ -43,6 +53,7 @@ namespace Denity.UniduxSceneTransitionSample.LifeCycle
             // Terminate
             _pageWatcher.Terminate();
             _sceneWatcher.Terminate();
+            _transitioner.Terminate();
         }
     }
 }

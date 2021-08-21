@@ -14,8 +14,8 @@ namespace Denity.UniduxSceneTransitionSample.View
         [SerializeField] Button _buttonEnterMainPage;
         [SerializeField] Button _buttonShowLicence;
 
-        public Button ButtonEnterMainPage => _buttonEnterMainPage;
-        public Button ButtonShowLicence => _buttonShowLicence;
+        readonly Subject<Unit> _enterPage = new Subject<Unit>();
+        public IObservable<Unit> OnEnterPageAsObservable() => _enterPage;
 
         readonly Subject<Unit> _showLicence = new Subject<Unit>();
         public IObservable<Unit> OnShowLicenceAsObservable() => _showLicence;
@@ -25,6 +25,11 @@ namespace Denity.UniduxSceneTransitionSample.View
             _buttonShowLicence
                 .OnClickAsObservable()
                 .Subscribe(_ => _showLicence.OnNext(Unit.Default))
+                .AddTo(this);
+
+            _buttonEnterMainPage
+                .OnClickAsObservable()
+                .Subscribe(_ => _enterPage.OnNext(Unit.Default))
                 .AddTo(this);
         }
     }

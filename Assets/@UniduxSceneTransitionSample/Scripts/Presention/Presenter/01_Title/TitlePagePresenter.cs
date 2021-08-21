@@ -1,10 +1,10 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Denity.UniduxSceneTransitionSample.MainService.PageData;
 using Denity.UniduxSceneTransitionSample.Progression;
 using Denity.UniduxSceneTransitionSample.Transitioner;
+using Denity.UniduxSceneTransitionSample.Unidux;
 using Denity.UniduxSceneTransitionSample.View;
+using MessagePipe;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Denity.UniduxSceneTransitionSample.Presenter
@@ -16,29 +16,23 @@ namespace Denity.UniduxSceneTransitionSample.Presenter
     /// </summary>
     public class TitlePagePresenter : IPeriod
     {
-        readonly SceneTransitioner _transitioner;
+        readonly IPublisher<TransitionSignal> _transitionPublisher;
         readonly TitleView _view;
         readonly CompositeDisposable _disposable;
 
         [Inject]
-        public TitlePagePresenter(SceneTransitioner transitioner, TitleView view)
+        public TitlePagePresenter(IPublisher<TransitionSignal> transitionPublisher, TitleView view)
         {
-            _transitioner = transitioner;
+            _transitionPublisher = transitionPublisher;
             _view = view;
             _disposable = new CompositeDisposable();
         }
 
         public void Originate()
         {
-            _view.ButtonEnterMainPage
-                .BindToOnClick(_transitioner.TransitionTriggerProperty, _ =>
-                {
-                    Debug.Log("Transitioning... ");
-                    _view.ButtonShowLicence.interactable = false;
-                    return _transitioner.EnterMainPage()
-                        .ToObservable()
-                        .ForEachAsync(_ => Debug.Log("Transition Done."));
-                });
+            _view.OnEnterPageAsObservable()
+                .Subscribe(_ => _transitionPublisher.Publish(new TransitionSignal(PageName.Main, TransitionType.Push, new MainPageData())))
+                .AddTo(_disposable);
         }
 
         public void Terminate()
