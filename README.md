@@ -64,9 +64,7 @@ Assets
 │              └─03_Result
 ├─ScriptTemplates # スクリプトテンプレート格納用フォルダ
 └─ThirdParty # サードパーティアセット格納用フォルダ
-    ├─MiniJSON
     ├─TextMesh Pro
-    └─Unidux
     └─...
     └─...
 
@@ -74,11 +72,11 @@ Assets
 
 ## Dependencies
 
-* Unity 2020.3.15f1
+* Unity 2020.3.16f1
 
 ## Third Party Assets
 
-* [Unidux 0.3.4](https://github.com/mattak/Unidux)
+* [Unidux 0.4.2](https://github.com/mattak/Unidux)
 
 Copyright © 2016 MARUYAMA Takuma (mattak)
 
@@ -86,13 +84,17 @@ Copyright © 2016 MARUYAMA Takuma (mattak)
 
 Copyright (c) 2018 Yoshifumi Kawai
 
-* [UniTask 2.2.4](https://github.com/Cysharp/UniTask)
+* [UniTask 2.2.5](https://github.com/Cysharp/UniTask)
 
 Copyright (c) 2019 Yoshifumi Kawai / Cysharp, Inc.
 
 * [Zenject 9.2.0](https://github.com/modesttree/Zenject)
 
 Copyright (c) 2010-2021 Modest Tree Media Inc. ZENJECT and EXTENJECT are a trademark of Modest Tree Media Inc.
+
+* [MessagePipe 1.6.1](https://github.com/Cysharp/MessagePipe)
+
+Copyright (c) 2021 Cysharp, Inc.
 
 ## Licence
 
