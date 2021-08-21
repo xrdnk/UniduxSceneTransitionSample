@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/@UniduxSceneTransitionSample/Scenes/Permanent/0Z_UniduxBase/UniduxBaseScene.unity
+    path: Assets/@UniduxSceneTransitionSample/Scenes/Domain/0Z_UniduxBase/UniduxBaseScene.unity
     guid: c28212b5cfc218a4c9412c9c73e787d6
   - enabled: 1
     path: Assets/@UniduxSceneTransitionSample/Scenes/Page/01_Title/Title.unity
