@@ -28,12 +28,7 @@ Assets
 │  └─Scripts # スクリプトを格納するフォルダ
 │      ├─Progression # プログレッションレイヤー (初期化・終端処理・中断処理・実行処理等のライフサイクル処理を定める) 
 │      ├─Application # アプリケーションレイヤー 
-│      │  └─Context # コンテキストレイヤー (初期化・終端処理以外のDomain間の実行処理順番を定めたり，フローの調整を司ります) <<基本MonoBehaviourを継承しない>>
-│      │      ├─01_Title 
-│      │      ├─02_Main 
-│      │      ├─03_Result
-│      │      ├─0A_AAAA 
-│      │      └─0B_BBBB
+│      │  └─Transitioner # トランジショナー (画面遷移機構)
 │      ├─Domain # ドメインレイヤー (サービスやモデルデータを配置しています) <<Service は必要に応じてMonoBehaviourを継承する>>
 │      │  ├─MainService # メインゲーム画面に関するドメインフォルダ
 │      │  │  ├─PageData # ページデータ (Unidux画面遷移関連に利用)
