@@ -136,6 +136,15 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "me.mattak.unidux": {
+      "version": "0.4.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.neuecc.unirx": "7.1.0"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

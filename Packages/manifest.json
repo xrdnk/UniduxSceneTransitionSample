@@ -42,7 +42,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "me.mattak.unidux": "0.4.2"
   },
   "scopedRegistries": [
     {
@@ -52,7 +53,8 @@
         "com.cysharp.unitask",
         "com.neuecc.unirx",
         "com.openupm",
-        "com.svermeulen.extenject"
+        "com.svermeulen.extenject",
+        "me.mattak.unidux"
       ]
     }
   ]
