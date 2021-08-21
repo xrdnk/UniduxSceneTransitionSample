@@ -11,21 +11,21 @@ hands-on ブランチをチェックアウトすることで，穴埋め方式�
 
 ```
 Assets
-├─@UniduxSceneTransitionSample # 本プロジェクトのルートです
-│  ├─ResourceFiles # リソースデータを格納するフォルダです
+├─@UniduxSceneTransitionSample # 本プロジェクトのルート
+│  ├─ResourceFiles # リソースデータを格納するフォルダ
 │  │  ├─Images 
 │  │  └─Presets
 │  │  └─... (Prefabs, Audios, Materials, Animations etc...)
-│  ├─Scenes # Unity Scene を格納するフォルダです
-│  │  ├─Page # ページとして利用する Unity Scene を格納するフォルダです
+│  ├─Scenes # Unity Scene を格納するフォルダ
+│  │  ├─Page # ページとして利用する Unity Scene を格納するフォルダ (View, Presenter, Navigation...)
 │  │  │  ├─01_Title
 │  │  │  ├─02_Main
 │  │  │  └─03_Result
-│  │  └─Permanent # 永続的に利用する Unity Scene を格納するフォルダです (Service, Repository, Infrastructure Layers...)
+│  │  └─Domain # ドメインの塊として利用する Unity Scene を格納するフォルダ (Service, Repository, Application Layer, Infrastructure Layers...)
 │  │      ├─0A_AAAA 
 │  │      ├─0B_BBBB
 │  │      └─0Z_UniduxBase # Unidux Service Scene
-│  └─Scripts # スクリプトを格納するフォルダです
+│  └─Scripts # スクリプトを格納するフォルダ
 │      ├─Progression # プログレッションレイヤー (初期化・終端処理・中断処理・実行処理等のライフサイクル処理を定める) 
 │      ├─Application # アプリケーションレイヤー 
 │      │  └─Context # コンテキストレイヤー (初期化・終端処理以外のDomain間の実行処理順番を定めたり，フローの調整を司ります) <<基本MonoBehaviourを継承しない>>
@@ -34,35 +34,37 @@ Assets
 │      │      ├─03_Result
 │      │      ├─0A_AAAA 
 │      │      └─0B_BBBB
-│      ├─Domain # ドメインレイヤー (サービスやモデルデータを配置しています) 
-│      │  ├─PageData # ページデータを格納するフォルダです <<IPageDataを実装する>>
-│      │  │  ├─02_Main 
-│      │  │  └─03_Result
-│      │  ├─Service # サンプル用の Service を格納するフォルダです <<必要に応じてMonoBehaviourを継承する>>
-│      │  │  ├─02_Main
-│      │  │  └─03_Result
-│      │  └─Unidux # Unidux Service を格納するフォルダです
+│      ├─Domain # ドメインレイヤー (サービスやモデルデータを配置しています) <<Service は必要に応じてMonoBehaviourを継承する>>
+│      │  ├─MainService # メインゲーム画面に関するドメインフォルダ
+│      │  │  ├─PageData # ページデータ (Unidux画面遷移関連に利用)
+│      │  │  └─Service # メインサービス (ここにドメイン関心に関するサービスを置く)
+│      │  │  └─DataEntity # データエンティティ (データのエンティティを置く)
+│      │  │  └─Repository # リポジトリ (データベース情報・ScritableObject スクリプト等)
+│      │  │  └─...
+│      │  ├─Progression # プログレッションサービスに関するフォルダ
+│      │  ├─ResultService # リザルト画面に関するドメインフォルダ
+│      │  │  ├─PageData
+│      │  │  └─Service
+│      │  │  └─DataEntity
+│      │  │  └─Repository
+│      │  │  └─...
+│      │  └─Unidux # Unidux Domain Service を格納するフォルダです
 │      ├─LifeCycle # ライフサイクルレイヤー (ここでは MonoInstaller or LifetimeScope を配置し，初期化・終端処理の順番を定めます) <<MonoBehaviour継承>>
-│      │  ├─01_Title
+│      │  ├─01_Title 
 │      │  ├─02_Main
 │      │  ├─03_Result
-│      │  └─0Z_UniduxBase # Unidux Service Scene 
+│      │  └─0Z_UniduxBase
 │      └─Presention # プレゼンテーションレイヤー を格納するフォルダです 
-│          ├─Navigator # ナビゲータレイヤー (Scene 内に存在する View 群との間の行き来等の処理を司ります) <<基本MonoBehaviourを継承しない>>
-│          ├─Presenter # プレゼンタレイヤー (View と Domain との橋渡し処理を司ります) <<基本MonoBehaviourを継承しない>>
+│          ├─Navigator # ナビゲータレイヤー (必要に応じて Scene 内に存在する View 群との間の行き来等の処理を司る) <<MonoBehaviourを継承しない>>
+│          │  └─01_Title
+│          ├─Presenter # プレゼンタレイヤー (View と Domain との橋渡し処理を司る) <<MonoBehaviourを継承しない>>
 │          │  ├─01_Title
 │          │  ├─02_Main
 │          │  └─03_Result
-│          ├─Transitioner # トランジショナーレイヤー (Page と Page または同一 Page 下における Scene と Scene との間の行き来等の処理を司ります) <<基本MonoBehaviourを継承しない>>
-│          │  ├─01_Title
-│          │  ├─02_Main
-│          │  ├─03_Result
-│          │  └─0Z_UniduxBase # Unidux Service Scene 
-│          └─View # ビューレイヤー (入力イベント・出力表示用の処理を司ります) <<UIBehaviour継承>>
+│          └─View # ビューレイヤー (入力イベント・出力表示用の処理を司る) <<UIBehaviour継承>>
 │              ├─01_Title
 │              ├─02_Main
 │              └─03_Result
-├─ScriptTemplates # スクリプトテンプレート格納用フォルダ
 └─ThirdParty # サードパーティアセット格納用フォルダ
     ├─TextMesh Pro
     └─...
